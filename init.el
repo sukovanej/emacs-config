@@ -1,8 +1,23 @@
 ;; Disable GUI
 (tool-bar-mode -1)
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
 (setq use-dialog-box t)
 (setq use-file-dialog nil)
 (setq-default frame-title-format '("%b  -  GNU Emacs"))
+
+;; Highlight current line
+(global-hl-line-mode +1)
+
+;; Font
+(set-face-attribute
+ 'default nil
+ :font "JetBrains Mono Regular Nerd Font Complete Mono"
+ :height 120
+ :weight 'normal)
+
+;; Line numbers
+(setq linum-relative-current-symbol "")
 
 ;; Hide the startup screen
 (setq inhibit-startup-screen t)
@@ -26,11 +41,6 @@
 (with-eval-after-load 'package
   (add-to-list 'package-archives '("nongnu" . "https://elpa.nongnu.org/nongnu/"))
   (add-to-list 'package-archives '("melpa"  . "https://melpa.org/packages/")))
-
-;; Use package
-;; (unless (package-installed-p 'use-package)
-;;  (package-refresh-contents)
-;;  (package-install 'use-package))
 
 (require 'use-package)
 
@@ -95,7 +105,41 @@
   :config
   (evil-collection-init))
 
-(use-package general
-  :ensure t)
+(use-package general :ensure t)
+
+(use-package tree-sitter
+  :ensure t
+  :config
+  (global-tree-sitter-mode))
+
+(use-package kaolin-themes
+  :ensure t
+  :config
+  (load-theme 'kaolin-bubblegum t)
+  (kaolin-treemacs-theme))
+
+(use-package all-the-icons
+  :ensure t
+  :if (display-graphic-p))
+
+(use-package rainbow-delimiters
+  :ensure t
+  :config
+  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
+
+(use-package telephone-line
+  :ensure t
+  :config
+  (telephone-line-mode 1))
+
+(use-package dashboard
+  :ensure t
+  :config
+  (dashboard-setup-startup-hook))
+
+(use-package linum-relative
+  :ensure t
+  :config
+  (add-hook 'prog-mode-hook #'linum-relative-mode))
 
 (load-file "~/.emacs.d/keybinding.el")
