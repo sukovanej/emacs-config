@@ -10,11 +10,9 @@
 (global-hl-line-mode +1)
 
 ;; Font
-(set-face-attribute
- 'default nil
- :family "JetBrains Mono"
- :height 120
- :weight 'normal)
+(set-frame-font
+ "-JB-JetBrains Mono-normal-normal-normal-*-18-*-*-*-m-0-iso10646-1"
+ nil t)
 
 ;; Line numbers
 (setq linum-relative-current-symbol "")
