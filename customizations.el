@@ -4,7 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(linum-relative which-key vertico use-package tree-sitter tide telephone-line rainbow-delimiters magit kaolin-themes general evil-collection delight dashboard company all-the-icons)))
+   '(lsp-mode which-key vertico use-package tree-sitter tide telephone-line rainbow-delimiters magit linum-relative kaolin-themes general evil-collection delight dashboard company all-the-icons)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

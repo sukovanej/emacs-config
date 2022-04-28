@@ -12,7 +12,7 @@
 ;; Font
 (set-face-attribute
  'default nil
- :font "JetBrains Mono Regular Nerd Font Complete Mono"
+ :family "JetBrains Mono"
  :height 120
  :weight 'normal)
 
@@ -38,16 +38,23 @@
 (setq load-prefer-newer t)
 (setq read-process-output-max (* 1024 1024))
 
+;; track recently opened files
+(recentf-mode 1)
+
+;; track minibuffer history
+(savehist-mode 1)
+
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'forward)
+
 (with-eval-after-load 'package
   (add-to-list 'package-archives '("nongnu" . "https://elpa.nongnu.org/nongnu/"))
   (add-to-list 'package-archives '("melpa"  . "https://melpa.org/packages/")))
 
 (require 'use-package)
 
-(use-package delight :ensure t)
-
-(require 'uniquify)
-(setq uniquify-buffer-name-style 'forward)
+(use-package delight
+  :ensure t)
 
 (use-package which-key
   :ensure t
@@ -60,12 +67,6 @@
   :init
   (add-hook 'ibuffer-mode-hook #'hl-line-mode))
 
-;; track recently opened files
-(recentf-mode 1)
-
-;; track minibuffer history
-(savehist-mode 1)
-
 (use-package vertico
   :ensure t
   :init (vertico-mode))
@@ -73,7 +74,8 @@
 (use-package magit
   :ensure t)
 
-(use-package prog-mode :hook ((prog-mode . show-paren-mode)))
+(use-package prog-mode
+  :hook ((prog-mode . show-paren-mode)))
 
 (use-package company
   :ensure t
@@ -105,7 +107,8 @@
   :config
   (evil-collection-init))
 
-(use-package general :ensure t)
+(use-package general
+  :ensure t)
 
 (use-package tree-sitter
   :ensure t
@@ -141,5 +144,12 @@
   :ensure t
   :config
   (add-hook 'prog-mode-hook #'linum-relative-mode))
+
+(use-package typescript-mode
+  :ensure t)
+
+(use-package lsp-mode
+  :ensure t
+  :hook ((typescript-mode . lsp)))
 
 (load-file "~/.emacs.d/keybinding.el")

@@ -5,6 +5,9 @@
 ;; M-x
 (general-nmap :prefix "SPC" ":" 'execute-extended-command)
 
+;; find-file
+(general-nmap :prefix "SPC" "SPC" 'find-file)
+
 ;; === BUFFERS ===
 
 ;; show buffers
@@ -13,6 +16,7 @@
 ;; kill the current buffer
 (general-nmap :prefix "SPC" "b d"
   (lambda ()
+    (interactive)
     (kill-buffer (current-buffer))))
 
 ;; === MAGIT ===
