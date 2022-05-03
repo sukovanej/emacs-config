@@ -8,6 +8,11 @@
 ;; find-file
 (general-nmap :prefix "SPC" "SPC" 'find-file)
 
+(general-nmap "C-l" 'evil-window-right)
+(general-nmap "C-h" 'evil-window-left)
+(general-nmap "C-k" 'evil-window-top)
+(general-nmap "C-j" 'evil-window-button)
+
 ;; === BUFFERS ===
 
 ;; show buffers
