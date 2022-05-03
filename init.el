@@ -155,15 +155,7 @@
   :config
   (ivy-mode 1))
 
-(use-package ivy-posframe
-  :ensure t
-  :after counsel
-  :config
-  (require 'ivy-posframe)
-  ;; display at `ivy-posframe-style'
-  (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display)))
-  (setq ivy-posframe-display-functions-alist '((t . ivy-posframe-display-at-frame-center)))
-  ;; (setq ivy-posframe-parameters '((left-fringe . 8) (right-fringe . 8)))
-  (ivy-posframe-mode 1))
+(setq ivy-use-virtual-buffers t)
+(setq ivy-count-format "(%d/%d) ")
 
 (load-file "~/.emacs.d/keybinding.el")
