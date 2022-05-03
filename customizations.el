@@ -4,7 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(tree-sitter-langs which-key vertico use-package tree-sitter tide telephone-line rainbow-delimiters magit lsp-mode linum-relative kaolin-themes ivy-posframe general evil-collection delight dashboard counsel company all-the-icons)))
+   '(dracula-theme which-key vertico use-package tree-sitter-langs tide telephone-line shanty-themes rainbow-delimiters magit lsp-mode linum-relative kaolin-themes ivy-posframe haskell-mode general evil-collection doom-themes delight dashboard counsel company base16-theme all-the-icons)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

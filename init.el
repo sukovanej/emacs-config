@@ -106,11 +106,10 @@
   :ensure t
   :after tree-sitter)
 
-(use-package kaolin-themes
+(use-package dracula-theme
   :ensure t
   :config
-  (load-theme 'kaolin-bubblegum t)
-  (kaolin-treemacs-theme))
+  (load-theme 'dracula t))
 
 (use-package all-the-icons
   :ensure t
@@ -136,9 +135,7 @@
   :config
   (add-hook 'prog-mode-hook #'linum-relative-mode))
 
-(use-package lsp-mode
-  :ensure t
-  :hook ((typescript-mode . lsp)))
+(use-package lsp-mode :ensure t)
 
 (use-package counsel
   :ensure t
@@ -149,4 +146,5 @@
 (setq ivy-count-format "(%d/%d) ")
 
 (load-file "~/.emacs.d/typescript.el")
+(load-file "~/.emacs.d/haskell.el")
 (load-file "~/.emacs.d/keybinding.el")

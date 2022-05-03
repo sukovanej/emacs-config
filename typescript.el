@@ -7,6 +7,7 @@
   :after (typescript-mode company flycheck)
   :hook ((typescript-mode . tide-setup)
          (typescript-mode . tree-sitter-hl-mode)
-         (before-save . tide-format-before-save)))
+         (before-save     . tide-format-before-save)
+	 (typescript-mode . lsp)))
 
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
