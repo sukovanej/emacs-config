@@ -19,6 +19,7 @@
 
 ;; show buffers
 (general-nmap :prefix "SPC" "b b" 'ivy-switch-buffer)
+(general-nmap :prefix "SPC" "b B" 'ibuffer)
 
 ;; eval buffer
 (general-nmap :prefix "SPC" "b e" 'eval-buffer)

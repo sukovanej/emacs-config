@@ -65,10 +65,6 @@
   :init
   (add-hook 'ibuffer-mode-hook #'hl-line-mode))
 
-(use-package vertico
-  :ensure t
-  :init (vertico-mode))
-
 (use-package magit
   :ensure t)
 
@@ -83,13 +79,6 @@
   :custom
   (company-idle-delay 0)
   (company-minimum-prefex-length 1))
-
-(use-package tide
-  :ensure t
-  :after (typescript-mode company flycheck)
-  :hook ((typescript-mode . tide-setup)
-         (typescript-mode . tide-hl-identifier-mode)
-         (before-save . tide-format-before-save)))
 
 (use-package evil
   :ensure t
@@ -112,6 +101,10 @@
   :ensure t
   :config
   (global-tree-sitter-mode))
+
+(use-package tree-sitter-langs
+  :ensure t
+  :after tree-sitter)
 
 (use-package kaolin-themes
   :ensure t
@@ -143,9 +136,6 @@
   :config
   (add-hook 'prog-mode-hook #'linum-relative-mode))
 
-(use-package typescript-mode
-  :ensure t)
-
 (use-package lsp-mode
   :ensure t
   :hook ((typescript-mode . lsp)))
@@ -158,4 +148,5 @@
 (setq ivy-use-virtual-buffers t)
 (setq ivy-count-format "(%d/%d) ")
 
+(load-file "~/.emacs.d/typescript.el")
 (load-file "~/.emacs.d/keybinding.el")
